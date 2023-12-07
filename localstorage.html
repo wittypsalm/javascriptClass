@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Place in your HTML file between the <head> tags -->
+    <!-- Place in your HTML file between the <head> tags -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      /* Place in your CSS file at the top of the document */
+
+      @import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap");
+      body {
+        font-family: "Goudy Bookletter 1911", serif;
+      }
+      ul li {
+        list-style: none;
+      }
+      .delete-item {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 600px; margin: auto" class="container-md mt-5">
+      <div class="row">
+        <div class="col s12">
+          <div id="main" class="card">
+            <div class="card-content">
+              <span class="card-title"></span>
+              <div class="row">
+                <form action="" class="task-form m-3">
+                  <div class="col s12 input-field m-2">
+                    <h5 class="form-label heading">Task Name</h5>
+                    <input
+                      type="text"
+                      id="walex"
+                      class="form-control wales mt-2 w-75"
+                      placeholder="add-to-task"
+                      aria-describedby="passwordHelpBlock"
+                    />
+                  </div>
+                  <input
+                    type="submit"
+                    class="btn btn-primary mt-3 sub"
+                    value="AddToTask"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="show"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/1a454e7405.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@material-ui/core/umd/material-ui.production.min.js"
+      crossorigin="anonymous"
+    ></script>
+   <!-- ... your HTML code ... -->
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const display = document.getElementById('show');
+      const taskInput = document.getElementById('walex');
+      const task = taskInput.value;
+  
+      // Get tasks from local storage or initialize an empty array
+      let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  
+      // Add the new task to the array
+      tasks.push(task);
+  
+      // Save the updated tasks array back to local storage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+  
+      // Clear the input field
+      taskInput.value = '';
+  
+      // Update the display with the tasks
+      updateDisplay();
+    });
+  
+    // Function to update the display with tasks from local storage
+    function updateDisplay() {
+      const display = document.getElementById('show');
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  
+      // Clear the existing content
+      display.innerHTML = '';
+  
+      // Check if there are tasks to display
+      if (tasks.length > 0) {
+        // Create a table to display the tasks
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tasks.map(task => `<tr><td>${task}</td></tr>`).join('')}
+          </tbody>
+        `;
+  
+        // Append the table to the display
+        display.appendChild(table);
+      } else {
+        // Display a message if there are no tasks
+        display.textContent = 'No tasks available.';
+      }
+    }
+  
+    // Initial display update on page load
+    updateDisplay();
+  </script>
+  
+  <!-- ... your HTML code ... -->
+  
+  </body>
+</html>

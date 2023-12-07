@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="wale"></p>
+  </body>
+  <script>
+    //Array
+    //Tenary Operator
+   let sade = 65
+    let fela = sade  > 50 ? "goodee" : "walex"
+        console.log(fela);
+    let number = [14, 62, 9, 34, 50, 43];
+
+    let fruit = ["apple", "mango", "orange", "tomato", "grape", "pear"];
+    let number2 = new Array(1, 5, 9, 12, 32);
+    let mixedAll = [
+      30,
+      "mercedez",
+      true,
+      { name: "wale", surname: "fm" },
+      new Date(),
+    ];
+    let val;
+
+    //Add to the back
+    val = number;
+    vale = fruit;
+    val.push("pawpaw");
+    //Add to the front
+    val.unshift("grape");
+    //remove from back
+    val.pop();
+    //remove from front
+    val.shift();
+    //remove from middle
+    val.splice();
+    val.reverse();
+    let wale = val.concat(vale);
+    console.log(wale);
+    //console.log(val.length);
+
+    //Template Literal of String
+    let firstName = "sunday";
+    let lastName = "wale";
+    let age = 44;
+    let occupation = "teacher";
+    let birthyear = 1990;
+    let currentYear = 2023;
+    let showDetails = ` my name is ${firstName}  ${lastName} and my age is ${
+      currentYear - birthyear
+    }, and my occupation is ${occupation}`;
+    console.log(showDetails);
+
+    //Object Literal
+
+    let person = {
+      name: "olawale",
+      class: "level 5",
+      age: 17,
+      isPaid: true,
+      contactAddrss: {
+        city: "ibadan",
+        state: "oyo",
+        language: {
+          yoruba: "yoruba",
+          hausa: "hausa",
+        },
+      },
+      grade(a, b) {
+        return a + b;
+      },
+    };
+
+    walemoney = person.contactAddrss;
+    console.log(walemoney);
+
+    //IF AND ELSE STATEMENT
+
+    let votingAge = 18;
+    let waleBirthYear = 2005;
+    let waleAge = 2023 - waleBirthYear;
+    console.log(waleAge);
+    if (waleAge >= votingAge) {
+      console.log(
+        ` wale is ${votingAge} years old and he is elligible to vote`
+      );
+    } else {
+      console.log(
+        `wale is not up to ${votingAge} years old and he is not elligible to vote`
+      );
+    }
+
+    //Date and time
+    let date = new Date();
+
+    console.log(typeof date, "wale");
+    birthyear = new Date("2006-05-08 12:30:43");
+    let getTime = date.getMonth();
+    getTime = date.getDate();
+    getTime = date.getHours();
+    getTime = date.getFullYear();
+    getTime = date.getMinutes();
+    date.setFullYear(2006);
+    date.setMonth(4);
+    date.setDate(8);
+    date.setHours(9);
+    date.setMinutes(30);
+    document.write(date);
+    //Function declaration
+    function greet(firstName, lastName) {
+      return `hello ${firstName} ${lastName}`;
+    }
+    console.log(greet("wale", "money"));
+    greet();
+
+    //Function Expression
+
+    function calculate(x, y, z) {
+      return (x * y) / z;
+    }
+    console.log(calculate(3, 4, 2));
+    calculate();
+
+    //Loop Statement
+    //For Loop
+    const Cars = ["toyota", "volvo", "ford", "benz", "ferari", "volkswagen"];
+    for (let i = 0; i < Cars.length; i++) {
+      console.log(`My car is ${i + 1} ${Cars[i]} `);
+    }
+
+    //  While Loop
+    let i = 8;
+    while (i < 10) {
+      console.log(`digit: ${i}`);
+      i++;
+    }
+
+    //DO While Loop
+    let j = 40;
+
+    do {
+      console.log(j);
+      j++;
+    } while (j < 30);
+
+    //For Each Loop
+
+    Cars.forEach(function (car, i) {
+      console.log(`${i + 1} : ${car}`);
+    });
+
+    //For In
+    for (let motors in Cars) {
+      document.write(`
+
+            <div>${Cars[motors]} is a good car</div>
+            `);
+    }
+    //For Of
+    for (const tyre of Cars) {
+      document.write(tyre);
+    }
+
+    //Array of Object
+    let walex = [
+      {
+        id: 1,
+        name: "tola",
+      },
+      {
+        id: 2,
+        name: "tola",
+      },
+      {
+        id: 3,
+        name: "tola",
+      },
+      {
+        id: 4,
+        name: "tola",
+      },
+    ];
+
+    //Scope in Javascript
+
+    //Global Scope
+    var a = 1;
+    let b = 2;
+    const c = 3;
+
+    console.log(`Global scope: ${a} ${b} ${c} `);
+
+    //Function Scope
+    function test() {
+      var a = 3;
+      let b = 6;
+      const c = 9;
+      console.log(`Function Scope : ${a} ${b} ${c}`);
+    }
+    test();
+
+    //Block Scope
+    if (true) {
+      var a = 6;
+      let b = 7;
+      const c = 4;
+    }
+    console.log(`Block Scope : ${a} ${b} ${c}`);
+
+    // Switch
+    const color = "red";
+    switch (color) {
+      case "red":
+        console.log("this is color red");
+        break;
+      case "blue":
+        console.log("this is a blue color");
+        break;
+      default:
+        console.log("this color is not red or blue then");
+    }
+
+    let day;
+    switch (new Date().getDay()) {
+      case 1:
+        day = "sunday";
+        break;
+      case 2:
+        day = "monday";
+        break;
+      case 3:
+        day = "tuesday";
+        break;
+
+      case 4:
+        day = "wednessday";
+        break;
+
+      case 5:
+        day = "thursday";
+        break;
+      case 6:
+        day = "friday";
+        break;
+      case 7:
+        day = "saturday";
+        break;
+    } 
+    console.log(`Today is ${day}`);
+
+
+
+    
+  </script>
+</html>
